@@ -2,8 +2,11 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
+  padding: 0;
+  min-height: 100%;
   font-family: Arial, sans-serif;
   color: #111;
 }
@@ -11,11 +14,9 @@ body {
 .site-layout {
   min-height: 100vh;
   display: flex;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
+
+/* Сайдбар */
 
 .sidebar {
   width: 250px;
@@ -56,6 +57,8 @@ body {
   background-color: #cce1db;
 }
 
+/* Контент */
+
 .content {
   margin-left: 250px;
   width: calc(100% - 250px);
@@ -69,11 +72,11 @@ body {
 .page-card {
   max-width: 820px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.84);
   color: #222;
   border-radius: 18px;
   padding: 36px 28px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
   text-align: center;
 }
 
@@ -101,51 +104,54 @@ body {
   font-size: 18px;
 }
 
-.bg-home {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)),
-    url("../images/4.jpg");
+/* Фоны страниц */
+/* Для главной страницы, которая лежит в корне */
+body.bg-home {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)),
+    url("../images/4.jpg") center center / cover no-repeat fixed;
 }
 
-.bg-about {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)),
-    url("../images/new_1.jpg");
+/* Для внутренних страниц из папки pages */
+body.bg-about {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0.20)),
+    url("../images/new_1.jpg") center center / cover no-repeat fixed;
 }
 
-.bg-coaching {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
-    url("../images/9.jpg");
+body.bg-coaching {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0.40)),
+    url("../images/9.jpg") center center / cover no-repeat fixed;
 }
 
-.bg-psych {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
-    url("../images/7.avif");
+body.bg-psych {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0.40)),
+    url("../images/7.avif") center center / cover no-repeat fixed;
 }
 
-.bg-project {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
-    url("../images/10.webp");
+body.bg-project {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0.40)),
+    url("../images/10.webp") center center / cover no-repeat fixed;
 }
 
-.bg-education {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
-    url("../images/13.jpg");
+body.bg-education {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
+    url("../images/13.jpg") center center / cover no-repeat fixed;
 }
 
-.bg-neutral {
-  background-image:
-    linear-gradient(rgba(245,248,245,0.92), rgba(245,248,245,0.92));
+body.bg-neutral {
+  background: linear-gradient(rgba(245, 248, 245, 0.95), rgba(245, 248, 245, 0.95));
 }
+
+/* Адаптация под мобильные */
 
 @media (max-width: 900px) {
   .site-layout {
     display: block;
-    background-attachment: scroll;
   }
 
   .sidebar {
@@ -157,6 +163,7 @@ body {
   .content {
     margin-left: 0;
     width: 100%;
+    min-height: auto;
     padding: 24px;
   }
 
@@ -183,5 +190,14 @@ body {
   .page-card p,
   .services-list li {
     font-size: 17px;
+  }
+
+  body.bg-home,
+  body.bg-about,
+  body.bg-coaching,
+  body.bg-psych,
+  body.bg-project,
+  body.bg-education {
+    background-attachment: scroll;
   }
 }
