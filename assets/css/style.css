@@ -143,6 +143,12 @@ body.bg-education {
     url("../images/13.jpg") center center / cover no-repeat fixed;
 }
 
+body.bg-resume {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
+    url("../images/coffe.jpg") center center / cover no-repeat fixed;
+}
+
 body.bg-neutral {
   background: linear-gradient(rgba(245, 248, 245, 0.95), rgba(245, 248, 245, 0.95));
 }

@@ -4,9 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Темы сотрудничества</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=4" />
+  <style>
+    .about-topics-page {
+      min-height: 100vh;
+      background-image: url('../assets/images/about-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    .about-topics-page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 248, 240, 0.45);
+      backdrop-filter: blur(2px);
+    }
+
+    .about-topics-inner {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 56px 28px;
+      text-align: center;
+    }
+
+    .about-topics-title {
+      margin: 0 0 18px;
+      font-size: clamp(40px, 5.2vw, 76px);
+      line-height: 1.02;
+      font-weight: 700;
+      color: #24343a;
+      text-shadow: 0 2px 10px rgba(255,255,255,0.45);
+    }
+
+    .about-topics-subtitle {
+      margin: 0 0 34px;
+      max-width: 820px;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.6;
+      color: #31464d;
+      text-shadow: 0 1px 8px rgba(255,255,255,0.38);
+    }
+
+    .about-topics-grid {
+      width: min(1120px, 100%);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .about-topic-card {
+      display: flex;
+      min-height: 250px;
+      padding: 34px 30px;
+      border-radius: 24px;
+      text-decoration: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(44, 62, 80, 0.15);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(8px);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+    }
+
+    .about-topic-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.16);
+    }
+
+    .about-topic-card:focus-visible {
+      outline: 3px solid rgba(47, 124, 106, 0.55);
+      outline-offset: 4px;
+    }
+
+    .about-topic-content {
+      max-width: 32ch;
+    }
+
+    .about-topic-card h2 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 2.6vw, 40px);
+      line-height: 1.08;
+      font-weight: 700;
+      color: #24343a;
+    }
+
+    .about-topic-card p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.65;
+      color: #42565c;
+    }
+
+    @media (max-width: 900px) {
+      .about-topics-inner {
+        justify-content: flex-start;
+        padding: 36px 18px 28px;
+      }
+
+      .about-topics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-topic-card {
+        min-height: 210px;
+        padding: 28px 22px;
+      }
+    }
+  </style>
 </head>
-<body class="site-layout bg-about">
+<body class="site-layout bg-neutral">
   <aside class="sidebar">
     <h2>Меню сайта</h2>
     <nav class="menu">
@@ -23,12 +141,44 @@
     </nav>
   </aside>
 
-  <main class="content">
-    <section class="page-card">
-      <h1>Темы сотрудничества</h1>
-      <p>Здесь собраны основные направления работы и возможные форматы взаимодействия.</p>
-      <p>Выберите нужный раздел в меню слева: коучинг, психология, управление проектами или обучающие программы.</p>
-    </section>
+  <main class="content about-topics-page">
+    <div class="about-topics-inner">
+      <h1 class="about-topics-title">Темы сотрудничества</h1>
+      <p class="about-topics-subtitle">
+        Выберите направление, которое ближе вашему запросу. Каждый блок ведет в отдельный раздел сайта
+        и помогает быстро перейти к нужному формату работы.
+      </p>
+
+      <section class="about-topics-grid" aria-label="Основные направления сотрудничества">
+        <a class="about-topic-card" href="./coaching.html">
+          <div class="about-topic-content">
+            <h2>Коучинг</h2>
+            <p>Работа с целями, внутренней опорой, личными решениями и движением к желаемым изменениям.</p>
+          </div>
+        </a>
+
+        <a class="about-topic-card" href="./psych.html">
+          <div class="about-topic-content">
+            <h2>Психология</h2>
+            <p>Бережное сопровождение в исследовании состояний, переживаний, сценариев и жизненных выборов.</p>
+          </div>
+        </a>
+
+        <a class="about-topic-card" href="./project.html">
+          <div class="about-topic-content">
+            <h2>Управление проектами</h2>
+            <p>Системная работа с задачами, процессами, командным взаимодействием и достижением результата.</p>
+          </div>
+        </a>
+
+        <a class="about-topic-card" href="./education.html">
+          <div class="about-topic-content">
+            <h2>Курсы и программы обучения</h2>
+            <p>Обучающие форматы, в которых практические инструменты можно перенести в работу и повседневную жизнь.</p>
+          </div>
+        </a>
+      </section>
+    </div>
   </main>
 </body>
 </html>
